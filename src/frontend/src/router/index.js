@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import NotFound from "@/components/errors/NotFound.vue";
-import ListAtivos from "@/views/ativos/Ativos.vue";
-import ShowAtivo from "@/views/ativos/Show.vue";
-import EditAtivo from "@/views/ativos/Edit.vue";
+import Listcarteiras from "@/views/carteiras/Carteiras.vue";
+import ShowCarteira from "@/views/carteiras/Show.vue";
+import EditCarteira from "@/views/carteiras/Edit.vue";
 
 const routes = [
   {
@@ -11,19 +11,19 @@ const routes = [
   },
   {
     path: "/",
-    name: "Ativos",
-    component: ListAtivos,
+    name: "carteiras",
+    component: Listcarteiras,
   },
   {
-    path: "/show/:ticker",
-    name: "ShowAtivo",
-    component: ShowAtivo,
+    path: "/show/:id",
+    name: "ShowCarteria",
+    component: ShowCarteira,
     props: true
   },
   {
     path: "/edit/:ticker",
-    name: "EditarAtivo",
-    component: EditAtivo,
+    name: "CarteiraAtivo",
+    component: EditCarteira,
     props: true
   },
 ];

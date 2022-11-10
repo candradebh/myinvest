@@ -18,7 +18,7 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
-                ><router-link to="/">Ativos</router-link></a
+                ><router-link to="/">Carteiras</router-link></a
               >
             </li>
             <li class="nav-item dropdown">

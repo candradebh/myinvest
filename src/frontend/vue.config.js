@@ -4,10 +4,10 @@ module.exports = {
   //outputDir: 'target/dist',
   //assetsDir: 'static',
   devServer: {
-    port: 3001,
+    port: 3002,
     proxy: {
       '/': {
-        target: 'http://localhost:9001',
+        target: 'http://localhost:9002',
         ws: false,
         changeOrigin: true
       }

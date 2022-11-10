@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 'investimentos'
+    name: 'myinvest'
   profiles:
     active: default
   cloud:

@@ -65,8 +65,7 @@ public class CarteiraService {
 
     public Carteira create(Carteira carteira) {
 
-        Optional<Carteira> CarteiraBuscado = repository.findById(carteira.getId());
-        return !CarteiraBuscado.isPresent() ? (Carteira) repository.save(carteira).add(linkTo(methodOn(CarteiraController.class).getAll()).withRel("getAll")) : null;
+        return (Carteira) repository.save(carteira).add(linkTo(methodOn(CarteiraController.class).getAll()).withRel("getAll"));
     }
 
     public boolean delete(Long id) {

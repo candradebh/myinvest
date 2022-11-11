@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">MF</a>
+        <a class="navbar-brand" href="#">MyInvest</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -18,7 +18,7 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
-                ><router-link to="/">Carteiras</router-link></a
+                ><router-link to="/carteiras">Carteiras</router-link></a
               >
             </li>
             <li class="nav-item dropdown">

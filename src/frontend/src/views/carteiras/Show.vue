@@ -1,28 +1,30 @@
 <template>
-  <h1>Ativo {{ ativo.ticker }}</h1>
-  <p>Nome: {{ ativo.nome }}</p>
+  <h3>Carteira ID {{ carteira.id }}</h3>
+  <p><b>Nome: </b> {{ carteira.nome }}</p>
+  <p><b>Descricao:</b> {{ carteira.descricao }}</p>
+  
 </template>
 
 <script>
 export default {
   props: {
-    ticker: {
+    id: {
       type: String,
       required: true,
     },
   },
   data() {
     return {
-      ativo: {},
+      carteira: {},
     };
   },
   created() {
-    console.log(this.ativo);
+    console.log(this.carteira);
   },
   mounted() {
-    fetch("/ativos/" + this.ticker)
+    fetch("/carteira/" + this.id)
       .then((response) => response.json())
-      .then((data) => (this.ativo = data));
+      .then((data) => (this.carteira = data));
   },
 };
 </script>

@@ -1,39 +1,27 @@
 <template>
-  <h3>Editando {{ ticker }}</h3>
-  <form v-on:submit="updateAtivo">
-    <div class="mb-3">
-      <label for="ticker" class="form-label">Ticker</label>
-      <input
-        class="form-control"
-        type="text"
-        id="ticker"
-        placeholder="TICKER"
-        aria-label="Ticker do ativo"
-        v-model="ativo.ticker"
-        disabled
-      />
-    </div>
-
+  <h3>Editando {{ carteira.nome }} - {{ id }}</h3>
+  <form v-on:submit="update">
     <div class="mb-3">
       <label for="nome" class="form-label">Nome</label>
       <input
         class="form-control"
         type="text"
         id="nome"
-        placeholder="VALE SA ON/PN"
-        v-model="ativo.nome"
+        placeholder="Nome da carteira"
+        aria-label="Nome da carteira"
+        v-model="carteira.nome"
       />
     </div>
 
     <div class="mb-3">
-      <label for="cnpj" class="form-label">CNPJ</label>
+      <label for="descricao" class="form-label">Descrição</label>
       <input
         class="form-control"
         type="text"
-        id="cnpj"
-        placeholder="CNPJ"
-        aria-label="CNPJ do ativo"
-        v-model="ativo.cnpj"
+        id="descricao"
+        placeholder="Descrição da carteira"
+        aria-label="Descrição da carteira"
+        v-model="carteira.descricao"
       />
     </div>
 
@@ -44,41 +32,41 @@
 <script>
 export default {
   props: {
-    ticker: {
+    id: {
       type: String,
       required: true,
     },
   },
   data() {
     return {
-      ativo: {},
+      carteira: {},
     };
   },
   created() {
-    console.log(this.ativo);
+    console.log(this.carteira);
   },
   methods: {
-    updateAtivo(e) {
+    update(e) {
       e.preventDefault(); // Prevent page from reloading.
 
       const requestOptions = {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.ativo),
+        body: JSON.stringify(this.carteira),
       };
 
-      fetch("/ativos/" + this.ativo.ticker, requestOptions)
+      fetch("/carteira/" + this.id, requestOptions)
         .then((response) => response.json())
-        .then((data) => (this.ativo = data));
+        .then((data) => (this.carteira = data));
 
-      this.$router.push({ name: "Ativos" });
+      this.$router.push({ name: "Carteiras" });
     },
   },
 
   mounted() {
-    fetch("/ativos/" + this.ticker)
+    fetch("/carteira/" + this.id)
       .then((response) => response.json())
-      .then((data) => (this.ativo = data));
+      .then((data) => (this.carteira = data));
   },
 };
 </script>

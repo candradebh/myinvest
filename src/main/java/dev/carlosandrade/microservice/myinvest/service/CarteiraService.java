@@ -38,14 +38,17 @@ public class CarteiraService {
         return listRegisters;
     }
 
-    public Carteira update(Long id, Carteira Carteira) {
+    public Carteira update(Long id, Carteira carteira) {
 
         Optional<Carteira> CarteiraExisting = repository.findById(id);
         if (CarteiraExisting.isPresent()) {
             Carteira updatedcarteira = CarteiraExisting.get();
 
-            if (Carteira.getNome() != null && !Carteira.getNome().equals(updatedcarteira.getNome())) {
-                updatedcarteira.setNome(Carteira.getNome());
+            if (carteira.getNome() != null && !carteira.getNome().equals(updatedcarteira.getNome())) {
+                updatedcarteira.setNome(carteira.getNome());
+            }
+            if (carteira.getDescricao() != null && !carteira.getDescricao().equals(updatedcarteira.getDescricao())) {
+                updatedcarteira.setDescricao(carteira.getDescricao());
             }
 
             repository.save(updatedcarteira);

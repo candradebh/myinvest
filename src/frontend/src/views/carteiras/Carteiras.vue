@@ -17,7 +17,7 @@
         <td>{{ row.descricao }}</td>
         <td>{{ row.total }}</td>
         <td>
-          <router-link :to="'/carteiras/show/' + row.id">Ver</router-link> |
+          <router-link :to="'/carteiras/show/' + row.id">Abrir</router-link> |
           <router-link :to="'/carteiras/edit/' + row.id">Editar</router-link>
         </td>
       </tr>

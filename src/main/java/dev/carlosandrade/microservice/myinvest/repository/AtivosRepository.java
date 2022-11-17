@@ -1,4 +1,9 @@
 package dev.carlosandrade.microservice.myinvest.repository;
 
-public interface AtivosRepository extends org.springframework.data.jpa.repository.JpaRepository<dev.carlosandrade.microservice.myinvest.model.Ativos, java.lang.Long> {
+import dev.carlosandrade.microservice.myinvest.model.Ativos;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AtivosRepository extends CrudRepository<Ativos, Long> {
 }

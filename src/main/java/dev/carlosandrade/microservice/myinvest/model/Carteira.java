@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,7 +20,6 @@ public class Carteira extends RepresentationModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String userName;
 
     @Enumerated(EnumType.STRING)
@@ -33,4 +33,8 @@ public class Carteira extends RepresentationModel {
     @Column(nullable = true)
     private Long total;
 
+    @OneToMany
+    private Set<Ativos> ativos;
+
+    
 }

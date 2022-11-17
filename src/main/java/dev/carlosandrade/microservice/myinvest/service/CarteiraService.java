@@ -20,7 +20,7 @@ public class CarteiraService {
     private CarteiraRepository repository;
 
     public Carteira getById(Long id) {
-        return repository.findById(id).orElse(new Carteira());
+        return repository.findById(id).orElse(null);
     }
 
     public List<Carteira> getAll() {

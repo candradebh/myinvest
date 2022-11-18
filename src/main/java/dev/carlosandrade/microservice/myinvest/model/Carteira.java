@@ -33,8 +33,8 @@ public class Carteira extends RepresentationModel {
     @Column(nullable = true)
     private Long total;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Ativos> ativos;
 
-    
+
 }

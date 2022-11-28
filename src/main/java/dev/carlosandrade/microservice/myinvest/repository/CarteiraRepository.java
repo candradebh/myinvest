@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CarteiraRepository extends CrudRepository<Carteira, Long> {
+public interface CarteiraRepository extends CrudRepository<Carteira, Integer> {
 
 
 }

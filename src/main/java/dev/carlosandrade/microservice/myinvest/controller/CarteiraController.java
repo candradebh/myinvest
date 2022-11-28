@@ -26,8 +26,9 @@ public class CarteiraController {
     }
 
     @RequestMapping("/{id}")
-    public Carteira read(@PathVariable("id") Long id) {
-        return service.getById(id);
+    public ResponseEntity read(@PathVariable("id") Integer id) {
+        Carteira carteira = service.getById(id);
+        return carteira != null ? ResponseEntity.ok(carteira) : ResponseEntity.notFound().build();
     }
 
 
@@ -39,13 +40,13 @@ public class CarteiraController {
 
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable Long id, @Validated @RequestBody Carteira carteira) {
+    public ResponseEntity update(@PathVariable Integer id, @Validated @RequestBody Carteira carteira) {
         Carteira itemUpdated = service.update(id, carteira);
         return itemUpdated != null ? ResponseEntity.ok(itemUpdated) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Integer id) {
 
         return service.delete(id) == true ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
 

@@ -24,10 +24,12 @@ public class MyinvestApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-       /* Carteira carteira = carteiraRepository.findById(1L).get();
-        Ativos vale3 = Ativos.builder().ticker("VALE3").quantidade(1L).preco(83L).total(83L).carteira(carteira).build();
-        carteira.getAtivos().add(vale3);
-        carteiraRepository.save(carteira);*/
+     /*   Carteira carteira = carteiraRepository.findById(1).get();
+        Ativos vale3 = Ativos.builder().ticker("VALE3").quantidade(1).preco((long) 83.3).total(830L).carteira(carteira).build();
+        Ativos ativoCriado = ativosRepository.save(vale3);
+        carteira.getAtivos().add(ativoCriado);
+        carteiraRepository.save(carteira);
+        //System.out.println(ativoCriado.toString());*/
     }
 
 }

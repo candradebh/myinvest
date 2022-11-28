@@ -15,23 +15,23 @@ import java.util.Date;
 public class Ativos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "carteira_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "carteira_id")
     private Carteira carteira;
 
     private String ticker;
 
-    private Long quantidade;
+    private int quantidade;
 
     private Long preco;
 
     private Long total;
 
+    @Column(nullable = true)
     private Date ultimaAtualizacao;
 
 

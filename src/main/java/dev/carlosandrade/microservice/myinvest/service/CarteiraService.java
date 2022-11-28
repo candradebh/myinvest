@@ -19,7 +19,7 @@ public class CarteiraService {
     @Autowired
     private CarteiraRepository repository;
 
-    public Carteira getById(Long id) {
+    public Carteira getById(Integer id) {
         Carteira carteira = repository.findById(id).orElse(null);
         return carteira;
     }
@@ -31,7 +31,7 @@ public class CarteiraService {
         if (!listRegisters.isEmpty()) {
 
             for (Carteira register : listRegisters) {
-                Long id = register.getId();
+                int id = register.getId();
                 register.add(linkTo(methodOn(CarteiraController.class).read(id)).withRel("read"));
             }
         }
@@ -39,7 +39,7 @@ public class CarteiraService {
         return listRegisters;
     }
 
-    public Carteira update(Long id, Carteira carteira) {
+    public Carteira update(Integer id, Carteira carteira) {
 
         Optional<Carteira> CarteiraExisting = repository.findById(id);
         if (CarteiraExisting.isPresent()) {
@@ -61,7 +61,7 @@ public class CarteiraService {
         }
     }
 
-    public Carteira read(Long id) {
+    public Carteira read(Integer id) {
 
         Optional<Carteira> register = repository.findById(id);
         return register.isPresent() ? (Carteira) register.get().add(linkTo(methodOn(CarteiraController.class).getAll()).withRel("getAll")) : null;
@@ -72,7 +72,7 @@ public class CarteiraService {
         return (Carteira) repository.save(carteira).add(linkTo(methodOn(CarteiraController.class).getAll()).withRel("getAll"));
     }
 
-    public boolean delete(Long id) {
+    public boolean delete(Integer id) {
 
         return repository.findById(id).map(existingCarteira -> {
             repository.delete(existingCarteira);
